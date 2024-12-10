@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>거래 상세 정보</title>
+    <meta name="description" content="특정 거래의 상세 정보를 보여주는 페이지입니다.">
+</head>
+<body>
+    <header>
+        <h1>거래 상세 정보</h1>
+    </header>
+    <main>
+        <p><strong>ID:</strong> <span th:text="${transaction.id}"></span></p>
+        <p><strong>구매자:</strong> <span th:text="${transaction.buyer.username}"></span></p>
+        <p><strong>상품명:</strong> <span th:text="${transaction.product.name}"></span></p>
+        <p><strong>수량:</strong> <span th:text="${transaction.quantity}"></span></p>
+        <p><strong>총 금액:</strong> <span th:text="${transaction.totalPrice}"></span></p>
+        <p><strong>거래 날짜:</strong> <span th:text="${#temporals.format(transaction.transactionDate, 'yyyy-MM-dd HH:mm:ss')}"></span></p>
+        <a th:href="@{'/transactions'}">목록으로 돌아가기</a>
+    </main>
+    <footer>
+        <p>(C) 가빈 컴퍼니 | 010-1234-1234 | mgb@naver.com</p>
+    </footer>
+</body>
+</html>

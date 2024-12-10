@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>거래 등록/수정</title>
+    <meta name="description" content="거래를 등록하거나 수정할 수 있는 페이지입니다.">
+</head>
+<body>
+    <header>
+        <h1 th:text="${transaction == null ? '새 거래 등록' : '거래 수정'}"></h1>
+    </header>
+    <main>
+        <form th:action="@{${transaction == null ? '/transactions/save' : '/transactions/update/' + ${transaction.id}}}" method="post">
+            <label for="buyer">구매자:</label>
+            <select id="buyer" name="buyer" required>
+                <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.username}" th:selected="${transaction?.buyer?.id == user.id}"></option>
+            </select><br>
+            
+            <label for="product">상품명:</label>
+            <select id="product" name="product" required>
+                <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.name}" th:selected="${transaction?.product?.id == product.id}"></option>
+            </select><br>
+            
+            <label for="quantity">수량:</label>
+            <input type="number" id="quantity" name="quantity" th:value="${transaction?.quantity}" required><br>
+            
+            <label for="totalPrice">총 금액:</label>
+            <input type="number" id="totalPrice" name="totalPrice" th:value="${transaction?.totalPrice}" step="0.01" required><br>
+            
+            <label for="transactionDate">거래 날짜:</label>
+            <input type="datetime-local" id="transactionDate" name="transactionDate" th:value="${#dates.format(transaction?.transactionDate, 'yyyy-MM-dd\'T\'HH:mm')}" required><br>
+            
+            <button type="submit">저장</button>
+        </form>
+        <a th:href="@{'/transactions'}">목록으로 돌아가기</a>
+    </main>
+    <footer>
+        <p>(C) 가빈 컴퍼니 | 010-1234-1234 | mgb@naver.com</p>
+    </footer>
+</body>
+</html>

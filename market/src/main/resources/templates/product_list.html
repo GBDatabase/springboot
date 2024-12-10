@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header>
+        <h1>Product List</h1>
+    </header>
+    <main>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Vendor</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.code}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.quantity}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.vendor}"></td>
+                    <td th:text="${product.category}"></td>
+                    <td>
+                        <a th:href="@{'/product/' + ${product.id}}">View</a>
+                        <a th:href="@{'/product/edit/' + ${product.id}}">Edit</a>
+                        <a th:href="@{'/product/delete/' + ${product.id}}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/product/add}">Add New Product</a>
+    </main>
+    <footer>
+        <p>(C) Market Inc. | 010-1234-1234 | mgb@naver.com</p>
+    </footer>
+</body>
+</html>

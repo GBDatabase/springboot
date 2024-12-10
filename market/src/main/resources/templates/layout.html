@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Platform</title>
+</head>
+<body>
+    <!-- 네비게이션 바 포함 -->
+    <header th:replace="fragments/fragment :: nav"></header>
+
+    <!-- 본문 내용 -->
+    <main>
+        <div th:insert="~{::content}"></div>
+    </main>
+    
+    <!-- 공통 푸터 -->
+    <footer>
+        <p>(C) 가빈 컴퍼니 | 010-1234-1234 | mgb@naver.com</p>
+    </footer>
+</body>
+</html>

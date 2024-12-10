@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Market Home</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Market</h1>
+        <nav>
+            <a th:href="@{/product}">Product List</a>
+            <a th:href="@{/user/login}">Login</a>
+            <a th:href="@{/user/signup}">Sign Up</a>
+        </nav>
+    </header>
+    <main>
+        <p>This is the homepage of the Market application. Explore products or manage users.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Market Inc.</p>
+    </footer>
+</body>
+</html>

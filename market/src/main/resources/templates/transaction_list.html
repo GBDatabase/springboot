@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>거래 목록</title>
+    <meta name="description" content="등록된 모든 거래 내역을 보여주는 페이지입니다.">
+</head>
+<body>
+    <header>
+        <h1>거래 목록</h1>
+    </header>
+    <main>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>구매자</th>
+                    <th>상품명</th>
+                    <th>수량</th>
+                    <th>총 금액</th>
+                    <th>거래 날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="transaction : ${transactions}">
+                    <td th:text="${transaction.id}"></td>
+                    <td th:text="${transaction.buyer.username}"></td>
+                    <td th:text="${transaction.product.name}"></td>
+                    <td th:text="${transaction.quantity}"></td>
+                    <td th:text="${transaction.totalPrice}"></td>
+                    <td th:text="${#temporals.format(transaction.transactionDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <td>
+                        <a th:href="@{'/transactions/' + ${transaction.id}}">보기</a>
+                        <a th:href="@{'/transactions/edit/' + ${transaction.id}}">수정</a>
+                        <a th:href="@{'/transactions/delete/' + ${transaction.id}}" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{'/transactions/add'}">새 거래 추가</a>
+    </main>
+    <footer>
+        <p>(C) 가빈 컴퍼니 | 010-1234-1234 | mgb@naver.com</p>
+    </footer>
+</body>
+</html>

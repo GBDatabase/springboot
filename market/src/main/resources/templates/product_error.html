@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>오류 발생</title>
+    <meta name="description" content="오류가 발생했음을 알려주는 페이지입니다.">
+</head>
+<body>
+    <header>
+        <h1>오류 발생</h1>
+    </header>
+    <main>
+        <p>요청하신 작업을 처리하는 중 오류가 발생했습니다.</p>
+        <a th:href="@{'/products'}">목록으로 돌아가기</a>
+    </main>
+    <footer>
+        <p>(C) 가빈 컴퍼니 | 010-1234-1234 | mgb@naver.com</p>
+    </footer>
+</body>
+</html>

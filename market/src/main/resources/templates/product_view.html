@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>제품 상세 정보</title>
+    <meta name="description" content="특정 제품의 상세 정보를 보여주는 페이지입니다.">
+</head>
+<body>
+    <header>
+        <h1>제품 상세 정보</h1>
+    </header>
+    <main>
+        <p><strong>ID:</strong> <span th:text="${product.id}"></span></p>
+        <p><strong>품목코드:</strong> <span th:text="${product.code}"></span></p>
+        <p><strong>품목명:</strong> <span th:text="${product.name}"></span></p>
+        <p><strong>수량:</strong> <span th:text="${product.quantity}"></span></p>
+        <p><strong>단가:</strong> <span th:text="${product.price}"></span></p>
+        <p><strong>판매처명:</strong> <span th:text="${product.vendor}"></span></p>
+        <p><strong>카테고리:</strong> <span th:text="${product.category}"></span></p>
+        <a th:href="@{'/products'}">목록으로 돌아가기</a>
+    </main>
+    <footer>
+        <p>(C) 가빈 컴퍼니 | 010-1234-1234 | mgb@naver.com</p>
+    </footer>
+</body>
+</html>
